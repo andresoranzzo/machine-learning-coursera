@@ -1,0 +1,36 @@
+1) 0,99
+2) 0,906
+3) 0,923
+4) 0,960
+5) 0.6
+---------------------
+print(m)
+y_scores_lr = m.fit(X_train, y_train).decision_function(X_test)
+precision, recall, thresholds = precision_recall_curve(y_test, y_scores_lr)
+closest_zero = np.argmin(np.abs(thresholds))
+closest_zero_p = precision[closest_zero]
+closest_zero_r = recall[closest_zero]
+
+plt.figure()
+plt.xlim([0.0, 1.01])
+plt.ylim([0.0, 1.01])
+plt.plot(precision, recall, label='Precision-Recall Curve')
+plt.plot(closest_zero_p, closest_zero_r, 'o', markersize = 12, fillstyle = 'none', c='r', mew=3)
+plt.xlabel('Precision', fontsize=16)
+plt.ylabel('Recall', fontsize=16)
+plt.axes().set_aspect('equal')
+plt.show()
+---------------------
+6) roc 1 / roc 3 / roc 2
+7) roc 1 / roc 2 / roc 3
+8) 0.805008635579
+-----
+print(m)
+m_predicted = m.predict(X_test)
+macro_score = precision_score(y_test, m_predicted, average = 'macro')
+-----
+9) The best possible score is 1.0
+A model that always predicts the mean of y would get a score of 0.0
+10) AUC (Area Under the Curve)
+11) Accuracy
+12) The model is probably misclassifying the frequent labels more than the infrequent labels
