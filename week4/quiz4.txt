@@ -1,0 +1,29 @@
+1. Separate the data into distinct groups by similarity
+2. Trees are easy to interpret and visualize
+   Tree often require less preprocessing of data
+3. To improve generatization by reducing correlation
+4. Support Vector Machines, KNN, Neural Networks
+5. For prediting future sales of a clothing line, Linear Regression...
+   For a model that won't overfit a training set, Naive Bayes...
+6. Neural Network
+   KNN
+   Decision Tree
+7. 
+Depth 2:
+Orange: 4120 / Blue: 4004 / Accuracy: 
+Accuracy = TP + TN
+accuracy2 = 4048+72/8124=4120/8124=0,507139
+accuracy1 4596/8124=0,565773
+
+8. collection_status / compliance_detail
+
+9. If time is a factor...
+   Remove variables...
+   Sanity check... 
+
+10. 
+x1 x2 saida
+0 0 0
+0 1 1
+1 0 1
+1 1 0
