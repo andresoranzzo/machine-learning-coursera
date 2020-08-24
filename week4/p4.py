@@ -16,15 +16,17 @@ datatest = pd.read_csv('train.csv', encoding="ISO-8859-1")
 datatest = datatest.head(20)
 datatest.index = datatest.ticket_id
 test = pd.read_csv('test.csv', encoding="ISO-8859-1")
+test.index = test.ticket_id
 test = test[features]
 test.head(20)
-test.index = test.ticket_id
 datatest.compliance = datatest.compliance.fillna(-1)
 datatest = datatest[datatest.compliance != -1]
 X = datatest[features]
 X.fillna(0)
 y = datatest.compliance
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
-clf = RandomForestClassifier(n_estimators = 10,
+clf = RandomForestClassifier(n_estimators = 10, max_depth=5,
                         random_state=0).fit(X_train, y_train)
-clf.predict_proba(test)
+
+results = clf.predict_proba(test)[:,1]
+answer = pd.Series(data=results, index=test.index, dtype="float32")
